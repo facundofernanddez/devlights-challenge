@@ -21,7 +21,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${inter.className} bg-[#090908] text-white h-full max-w-7xl`}
+        className={`${inter.className} bg-[#090908] text-white h-full max-w-full mx-44`}
       >
         <Navbar />
         {children}
