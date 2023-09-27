@@ -1325,7 +1325,7 @@ const jsonArray = [
 
 export default function DealCards() {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-4 mx-44">
       {jsonArray.map((deal, index) => {
         return (
           <div
