@@ -25,7 +25,7 @@ export default function Home() {
       />
 
       <div className="flex flex-1 justify-center">
-        <div className="flex justify-between px-2 py-1 my-8 rounded border border-pink-600 w-96">
+        <div className="flex justify-between px-2 py-1 my-8 rounded border-2 border-pink-600 w-96">
           <input
             type="text"
             className="bg-transparent placeholder:text-pink-600 selection:border-none"
