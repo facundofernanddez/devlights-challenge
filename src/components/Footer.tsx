@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-zinc-800 mt-10 flex py-20">
-      <div className="">
+      <div className="ml-20">
         <div>Logo</div>
       </div>
 
