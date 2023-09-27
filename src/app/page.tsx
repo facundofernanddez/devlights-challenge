@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect } from "react";
 import residentEvil from "../../public/images/resident-evil-4.png";
+import DealCards from "@/components/DealCards";
 
 export default function Home() {
   const endpoint =
@@ -42,6 +43,8 @@ export default function Home() {
           />
         </svg>
       </div>
+
+      <DealCards />
     </main>
   );
 }
