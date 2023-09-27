@@ -1330,19 +1330,19 @@ export default function DealCards() {
         return (
           <div
             key={index}
-            className="p-8 border border-pink-600 justify-center items-center rounded"
+            className="p-8 border border-pink-600 justify-center items-center rounded min-w-full"
           >
             <Image
               src={deal.thumb}
               alt="deal image"
-              width={150}
-              height={150}
+              width={500}
+              height={500}
             />
-            <h3>{deal.title}</h3>
+            <h3 className="font-semibold mt-2">{deal.title}</h3>
 
-            <p>Steam review</p>
+            <p className="text-center mt-6 font-extralight">Steam Review</p>
 
-            <div className="flex">
+            <div className="flex justify-between mx-20 py-4 text-yellow-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -1415,9 +1415,10 @@ export default function DealCards() {
               </svg>
             </div>
 
-            <p>
-              {deal.normalPrice} y {deal.salePrice}
-            </p>
+            <button className="bg-pink-600 min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center">
+              <p className="line-through text-xs">${deal.normalPrice}</p>
+              <p className="text-lg font-semibold">${deal.salePrice}</p>
+            </button>
           </div>
         );
       })}
