@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="max-w-full flex justify-between gap-20 py-10 items-center mx-44">
+    <nav className="max-w-full flex justify-between gap-20 py-10 items-center mx-80">
       <div>Logo</div>
 
       <div className="flex gap-20">
