@@ -11,12 +11,16 @@ export default function Home() {
   const endpoint =
     "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15";
 
+  //initial state to render all videogames
   const [videogames, setVideogames] = useState<IVideogame[]>([]);
+
+  //state to use when filtering videogames in the search input
   const [filteredVideogames, setFilteredVideogames] = useState<IVideogame[]>(
     []
   );
 
   useEffect(() => {
+    //fetching data from endopoint
     axios.get(endpoint).then((res) => {
       setVideogames(res.data);
       setFilteredVideogames(res.data);
@@ -24,6 +28,7 @@ export default function Home() {
   }, []);
 
   const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
+    //watch funtionality and set the results
     ev.preventDefault();
     const searchText = ev.target.value.toLowerCase();
 

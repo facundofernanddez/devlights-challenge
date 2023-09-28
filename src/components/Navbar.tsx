@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Navbar() {
+  //TODO: Add prices in cart link
   return (
     <nav className="max-w-full flex justify-between gap-20 py-10 items-center mx-80">
       <div>Logo</div>

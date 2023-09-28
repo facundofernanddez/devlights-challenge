@@ -16,8 +16,10 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
     e.preventDefault();
 
     if (selectedVideogames.includes(index)) {
+      //already selected then remove selection
       setSelectedVideogames(selectedVideogames.filter((i) => i !== index));
     } else {
+      //add selection
       setSelectedVideogames([...selectedVideogames, index]);
     }
   };
@@ -25,7 +27,7 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
   return (
     <div className="grid grid-cols-3 gap-4 mx-80">
       {filteredVideogames.map((videogame, index) => {
-        const isSelected = selectedVideogames.includes(index);
+        const isSelected = selectedVideogames.includes(index); // variable to use for selection;
         return (
           <div
             key={index}
@@ -48,6 +50,7 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
 
             <p className="text-center mt-6 font-extralight">Steam Review</p>
 
+            {/* TODO: pint the stars depending on the savings */}
             <div className="flex justify-between mx-20 py-4 text-yellow-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
