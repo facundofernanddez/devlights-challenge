@@ -7,6 +7,8 @@ import residentEvil from "../../public/images/resident-evil-4.png";
 import DealCards from "@/components/DealCards";
 import { IVideogame } from "@/types/videogame";
 
+//TODO: Add responsive
+
 export default function Home() {
   const endpoint =
     "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15";

@@ -1,8 +1,10 @@
 import Link from "next/link";
 
+//TODO: fix footer error when no search results are available
+
 export default function Footer() {
   return (
-    <footer className="bg-zinc-800 mt-10 flex py-20">
+    <footer className="bg-zinc-800 mt-10 flex py-20 bottom-[100vh] w-full">
       <div className="ml-20">
         <div>Logo</div>
       </div>
