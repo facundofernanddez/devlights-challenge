@@ -1,6 +1,5 @@
 import { IVideogame } from "@/types/videogame";
 import Image from "next/image";
-import { useState } from "react";
 
 interface DealCardsProps {
   filteredVideogames: IVideogame[];
@@ -15,12 +14,17 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
             key={index}
             className="p-4 justify-center items-center rounded min-w-full"
           >
-            <Image
-              src={videogame.thumb}
-              alt="deal image"
-              width={500}
-              height={500}
-            />
+            <div className="flex relative">
+              <Image
+                src={videogame.thumb}
+                alt="deal image"
+                width={500}
+                height={500}
+              />
+              <span className="absolute -top-5 -right-5 bg-red-600 px-2 py-4 rounded-full">
+                {Math.trunc(Number(videogame.savings))}%off
+              </span>
+            </div>
             <h3 className="font-semibold mt-2 truncate">{videogame.title}</h3>
 
             <p className="text-center mt-6 font-extralight">Steam Review</p>
