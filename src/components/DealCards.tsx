@@ -1,26 +1,37 @@
+"use client";
+
 import { IVideogame } from "@/types/videogame";
 import Image from "next/image";
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useContext, useState } from "react";
+import { TotalPriceContext } from "./providers/TotalPriceProvider";
 
 interface DealCardsProps {
   filteredVideogames: IVideogame[];
 }
 
 export default function DealCards({ filteredVideogames }: DealCardsProps) {
+  //state to use when selecting videogames
   const [selectedVideogames, setSelectedVideogames] = useState<number[]>([]);
+
+  const { totalPrice, setTotalPrice } = useContext(TotalPriceContext);
 
   const handleClick = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    index: number
+    index: number,
+    price: number
   ) => {
     e.preventDefault();
 
     if (selectedVideogames.includes(index)) {
       //already selected then remove selection
       setSelectedVideogames(selectedVideogames.filter((i) => i !== index));
+
+      //TODO: fix totalPrice when substract it
+      setTotalPrice(totalPrice - price);
     } else {
       //add selection
       setSelectedVideogames([...selectedVideogames, index]);
+      setTotalPrice(totalPrice + price);
     }
   };
 
@@ -28,6 +39,11 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
     <div className="grid grid-cols-3 gap-4 mx-80">
       {filteredVideogames.map((videogame, index) => {
         const isSelected = selectedVideogames.includes(index); // variable to use for selection;
+
+        if (selectedVideogames.length === 0) {
+          setTotalPrice(0);
+        }
+
         return (
           <div
             key={index}
@@ -125,7 +141,9 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
             </div>
 
             <button
-              onClick={(e) => handleClick(e, index)}
+              onClick={(e) =>
+                handleClick(e, index, Number(videogame.salePrice))
+              }
               className="bg-pink-600 min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center"
             >
               <p className="line-through text-xs">${videogame.normalPrice}</p>
