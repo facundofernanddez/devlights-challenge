@@ -1,18 +1,37 @@
 import { IVideogame } from "@/types/videogame";
 import Image from "next/image";
+import { MouseEvent, useState } from "react";
 
 interface DealCardsProps {
   filteredVideogames: IVideogame[];
 }
 
 export default function DealCards({ filteredVideogames }: DealCardsProps) {
+  const [selectedVideogames, setSelectedVideogames] = useState<number[]>([]);
+
+  const handleClick = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+    index: number
+  ) => {
+    e.preventDefault();
+
+    if (selectedVideogames.includes(index)) {
+      setSelectedVideogames(selectedVideogames.filter((i) => i !== index));
+    } else {
+      setSelectedVideogames([...selectedVideogames, index]);
+    }
+  };
+
   return (
     <div className="grid grid-cols-3 gap-4 mx-80">
       {filteredVideogames.map((videogame, index) => {
+        const isSelected = selectedVideogames.includes(index);
         return (
           <div
             key={index}
-            className="p-4 justify-center items-center rounded min-w-full"
+            className={`${
+              isSelected ? "border border-pink-600" : ""
+            } p-4 justify-center items-center rounded min-w-full`}
           >
             <div className="flex relative">
               <Image
@@ -102,7 +121,10 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
               </svg>
             </div>
 
-            <button className="bg-pink-600 min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center">
+            <button
+              onClick={(e) => handleClick(e, index)}
+              className="bg-pink-600 min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center"
+            >
               <p className="line-through text-xs">${videogame.normalPrice}</p>
               <p className="text-lg font-semibold">${videogame.salePrice}</p>
             </button>
