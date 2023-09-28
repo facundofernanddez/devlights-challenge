@@ -3,7 +3,7 @@
 import axios from "axios";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
-import residentEvil from "../../public/images/resident-evil-4.png";
+import residentEvil from "../../public/images/resident-evil-4.jpg";
 import DealCards from "@/components/DealCards";
 import { IVideogame } from "@/types/videogame";
 
@@ -51,7 +51,7 @@ export default function Home() {
       <Image
         src={residentEvil}
         alt="Home picture"
-        className="min-w-full max-h-[400px] object-fill"
+        className="min-w-full max-h-[600px] object-cover object-top"
       />
 
       <div className="flex flex-1 justify-center">
