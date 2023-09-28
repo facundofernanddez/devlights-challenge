@@ -101,7 +101,7 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
               onClick={(e) =>
                 handleClick(e, index, Number(videogame.salePrice))
               }
-              className="bg-pink-600 min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center"
+              className="bg-gradient-to-r from-yellow-500 to-pink-700  min-w-full py-2 mt-2 rounded-lg flex justify-center gap-3 items-center"
             >
               <p className="line-through text-xs">${videogame.normalPrice}</p>
               <p className="text-lg font-semibold">${videogame.salePrice}</p>
