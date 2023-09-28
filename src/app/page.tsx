@@ -8,7 +8,6 @@ import DealCards from "@/components/DealCards";
 import { IVideogame } from "@/types/videogame";
 
 //TODO: Add responsive
-//TODO: Add logos
 
 export default function Home() {
   const endpoint =

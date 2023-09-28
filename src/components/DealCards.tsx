@@ -65,6 +65,7 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
               <Image
                 src={videogame.thumb}
                 alt="deal image"
+                className="object-cover"
                 width={500}
                 height={500}
               />

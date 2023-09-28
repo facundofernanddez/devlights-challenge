@@ -3,14 +3,21 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { TotalPriceContext } from "./providers/TotalPriceProvider";
+import Image from "next/image";
+import logo from "../../public/images/logo.png";
 
 export default function Navbar() {
-  //TODO: Add prices in cart link
   const { totalPrice } = useContext(TotalPriceContext);
 
   return (
     <nav className="max-w-full flex justify-between gap-20 py-10 items-center mx-80">
-      <div>Logo</div>
+      <Image
+        src={logo}
+        alt="deal image"
+        className="object-cover bg-inherit rounded-full fill-inherit"
+        width={100}
+        height={100}
+      />
 
       <div className="flex gap-20">
         <Link href={"/"}>Home</Link>
