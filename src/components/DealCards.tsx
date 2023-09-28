@@ -68,7 +68,7 @@ export default function DealCards({ filteredVideogames }: DealCardsProps) {
                 width={500}
                 height={500}
               />
-              <span className="absolute -top-5 -right-5 bg-red-600 px-2 py-4 rounded-full">
+              <span className="flex items-center justify-center absolute -top-7 -right-7 bg-red-600 rounded-full w-16 h-16">
                 {Math.trunc(Number(videogame.savings))}%off
               </span>
             </div>

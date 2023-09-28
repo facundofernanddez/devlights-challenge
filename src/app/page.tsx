@@ -8,6 +8,7 @@ import DealCards from "@/components/DealCards";
 import { IVideogame } from "@/types/videogame";
 
 //TODO: Add responsive
+//TODO: Add logos
 
 export default function Home() {
   const endpoint =
@@ -57,7 +58,7 @@ export default function Home() {
         <div className="flex justify-between px-2 py-1 my-8 rounded border-2 border-pink-600 w-96">
           <input
             type="text"
-            className="bg-transparent placeholder:text-pink-600"
+            className="bg-transparent placeholder:text-pink-600 outline-none"
             placeholder="Search"
             onChange={(e) => handleChange(e)}
           />
